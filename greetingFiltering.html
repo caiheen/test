@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="output">
+        <ul>
+
+        </ul>
+    </div>
+
+    <script>
+        var list = document.querySelector('.output ul');
+        list.innerHTML = '';
+
+        var greetings = ['Happy Birthday!',
+                         'Merry Christmas my love',
+                         'A happy Christmas to all family',
+                         'You are all want for Christmas',
+                         'Get well soon'];
+
+        console.log(greetings.length);
+                         
+        for(var i = 0; i < greetings.length; i++){
+            var index = greetings[i];
+            // 하위 문자열이 포함되지 않은 문자열의 모든 인스턴스를 찾으려면 
+            // 부정 연산자를 사용해서 작업을 수행.
+            if(index.indexOf('Christmas') !== -1){
+                var result = index;
+                var listItem = document.createElement('li');
+                listItem.textContent = result;
+                list.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
