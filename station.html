@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="output">
+        <ul>
+
+        </ul>
+    </div>
+
+
+    <script>
+        var list = document.querySelector('.output ul');
+        list.innerHTML = '';
+        var stations = ['DHZ123;대화역',
+                        'JYZ456;주엽역',
+                        'MDZ789;마두역',
+                        'BSZ101112;백석역',
+                        'DKZ131415;대곡역'];
+
+        for (var i = 0; i < stations.length; i++) {
+        var input = stations[i];
+        // 세 글자 스테이션 코드를 추출하여 새 변수에 저장합니다.
+        var code = input.slice(0,3);
+        // 세미콜론의 문자 인덱스 번호를 찾습니다.
+        var semiC = input.indexOf(';');
+        // 세미콜론 문자 인덱스 번호를 기준점으로 사용하여 사람이 읽을 수 있는 스테이션 이름을 추출하고 새 변수에 저장합니다.
+        var name = input.slice(semiC + 1);
+        // 두 개의 새 변수와 문자열 리터럴을 연결하여 최종 문자열을 만듭니다.
+        var final = code + ': ' + name;
+        // result변수 의 값을 가 아닌 최종 문자열과 같도록 변경합니다 input.
+        var result = final;
+        var listItem = document.createElement('li');
+        listItem.textContent = result;
+        list.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
