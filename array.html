@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Live output</h1>
+    <div class="output">
+        <ul>
+            
+        </ul>
+        <p></p>
+    </div>
+    <script>
+        var list = document.querySelector('.output ul');
+        var totalBox = document.querySelector('.output p');
+        var total = 0;
+        list.innerHTML = '';
+        totalBox.textContent = '';
+        // number 1
+        var products = [ 'Underpants:6.99',
+                         'Socks:5.99',
+                         'T-shirt:14.99',
+                         'Trousers:31.99',
+                         'Shoes:23.99' ];
+
+        for(var i = 0; i < products.length; i++) { // number 2
+        // 각 배열에 :를 기준으로 분리
+        var subArray = products[i].split(':');
+        // subArray에서 상품이름과 가격을 각각 가져오기
+        var name = subArray[0];
+        var price = Number(subArray[1]);
+        // 상품의 가격을 반복문의 각 반복마다 총액에 합함.
+        total += price;
+        //  "Shoes — $23.99" 이런 형태로 출력되게
+        itemText = name + ' ----- $' + price;
+
+        var listItem = document.createElement('li');
+        listItem.textContent = itemText;
+        list.appendChild(listItem);
+        }
+
+        totalBox.textContent = 'Total: $' + total.toFixed(2);
+    </script>
+</body>
+</html>

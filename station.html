@@ -30,7 +30,7 @@
         // 세미콜론의 문자 인덱스 번호를 찾습니다.
         var semiC = input.indexOf(';');
         // 세미콜론 문자 인덱스 번호를 기준점으로 사용하여 사람이 읽을 수 있는 스테이션 이름을 추출하고 새 변수에 저장합니다.
-        var name = input.slice(semiC + 1);
+        var name = input.slice(semiC + -1);
         // 두 개의 새 변수와 문자열 리터럴을 연결하여 최종 문자열을 만듭니다.
         var final = code + ': ' + name;
         // result변수 의 값을 가 아닌 최종 문자열과 같도록 변경합니다 input.
