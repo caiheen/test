@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PUSH POP</h1>
+    <div class="output">
+        <ul>
+
+        </ul>
+        <input type="text">
+        <button>Search</button>
+    </div>
+
+    <script>
+        var list = document.querySelector(".output ul");
+        var searchinput = document.querySelector(".output input");
+        var searchBtn = document.querySelector(".output button");
+
+        list.innerHTML = '';
+        var myHistory = [];
+
+        searchBtn.onclick = function(){
+            // searchInput이 비어있지 않을 때
+            if(searchinput.value !== ''){
+                // input에 입력 된 현재 값을 추가
+                myHistory.unshift(searchinput.value);
+                // 검색어를 입력할 때마다 디스플레이가 재생성되는 중복 항목을 표시하지 않도록 목록 비운다
+                list.innerHTML = '';
+
+                for (var i = 0; i < myHistory.length; i++){
+                    itemText = myHistory[i];
+                    var listItem = document.createElement('li');
+                    listItem.textContent = itemText;
+                    list.appendChild(listItem);
+                }
+
+                // 검색 결과가 5개 이상이면 마지막꺼 하나씩 삭제
+                if(myHistory.length >= 5){
+                    myHistory.pop();
+                }
+
+                // 브라우저가 로딩되자마자 포커스가 인풋에,
+                // 인풋 비워놓기
+                searchinput.value ='';
+                searchinput.focus();
+            }
+        }
+    </script>
+</body>
+</html>
