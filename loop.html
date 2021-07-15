@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="search">연락처 검색하기 : </label>
+    <input id="search" type="text">
+    <button>Search</button>
+    
+    <p></p>
+
+
+    <script>
+        const input = document.querySelector('input');
+        const btn = document.querySelector('button');
+        const p = document.querySelector('p');
+
+        let userInfo = ['채하은:01012345678', '채찬영:01011111111', '채명철:01035359999','이선희:01056565656'];
+
+        btn.addEventListener('click', function(){
+            let userName = input.value;
+            input.value = '';
+            input.focus();
+            p.textContent = '';
+
+            for(let i = 0; i < userInfo.length; i++){
+                let splitContent = userInfo[i].split(':');
+                if(splitContent[0] === userName){
+                    p.textContent = userName + '님의 연락처는 ' + splitContent[1] + '입니다.';
+                    break;
+                } else {
+                    p.textContent = '찾으시는 분의 연락처가 없습니다.'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
