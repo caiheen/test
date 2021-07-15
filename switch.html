@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="weather">오늘의 날씨를 선택하세요.</label>
+    <select id="weather">
+        <option value="">--날씨 선택--</option>
+        <option value="sunny">맑음</option>
+        <option value="rainy">비</option>
+        <option value="snowing">눈</option>
+        <option value="overcast">흐림</option>
+    </select>
+
+    <p></p>
+
+    <script>
+        const select = document.querySelector('select');
+        const para = document.querySelector('p');
+
+        select.addEventListener('change', setWeather);
+
+        function setWeather(){
+            const choice = select.value;
+
+            switch (choice){
+                case 'sunny':
+                    para.textContent = '오늘 날씨가 매우 좋습니다! 얇게 입으셔도 될 것 같습니다! 해변으로, 공원으로 놀러나가 시원한 아이스크림을 즐겨보세요!';
+                    break;
+                case 'rainy':
+                    para.textContent = '밖에 비가 내리고 있습니다. 우산을 꼭 챙기세요! 그리고 밖에 너무 오래 머물지 마세요.';
+                    break;
+                case 'snowing':
+                    para.textContent = '눈이 내리고 있습니다! 집에서 따뜻한 핫초코를 즐기시거나, 밖으로 나가 눈사람을 만드세요!';
+                    break;
+                case 'overcast':
+                    para.textContent = '비는 오지 않으나, 구름이 많이 끼어 있습니다. 비가 금방이라도 올 수 있으니 우비를 챙기세요.';
+                    break;
+                default:
+                    para.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
