@@ -9,17 +9,36 @@
 <body>
     <label for="search">연락처 검색하기 : </label>
     <input id="search" type="text">
-    <button>Search</button>
+    <button class="searchBtn">Search</button>
+    <button class="addBtn">add</button>
     
     <p></p>
+    <ul>
+
+    </ul>
 
 
     <script>
         const input = document.querySelector('input');
-        const btn = document.querySelector('button');
+        const btn = document.querySelector('button.searchBtn');
+        const addBtn = document.querySelector('button.addBtn');
         const p = document.querySelector('p');
+        const ul = document.querySelector('ul');
 
         let userInfo = ['채하은:01012345678', '채찬영:01011111111', '채명철:01035359999','이선희:01056565656'];
+
+
+        addBtn.addEventListener('click', function(){
+            let userName = input.value;
+            input.value = '';
+            input.focus();
+
+            const li = document.createElement('li');
+            li.textContent = userName;
+            ul.appendChild(li);
+            userInfo.push(userName);
+            console.log(userInfo);
+        });
 
         btn.addEventListener('click', function(){
             let userName = input.value;
